@@ -1,7 +1,7 @@
-set :domain, 'cezobal.com'
+set :domain, '64.22.125.139'
 set :local, "#{`ifconfig | grep "192"`.match(/192\.168\.\d+\.\d+/)}"
 set :application, "cezobal"
-set :repository, "git@github.com:jeffrafter/cezobal.git"
+set :repository, "git://github.com/jeffrafter/cezobal.git"
 set :keep_releases, 2
 set :scm, :git
 set :deploy_to, "/var/www/#{application}"
