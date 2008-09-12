@@ -144,12 +144,12 @@ class Site < ActiveRecord::Base
     return @themes unless @themes.nil?
     @themes = []
     FileUtils.mkdir_p theme_path
-    Dir.foreach theme_path do |e|
-      next if e.first == '.'
+    Dir.foreach(theme_path) { |e|
+      next if e[0] == '.'
       entry = theme_path + e
       next unless entry.directory?
       @themes << Theme.new(entry, self)
-    end
+    }
     def @themes.[](key) key = key.to_s ; detect { |t| t.name == key } ; end
     @themes.sort! {|a,b| a.name <=> b.name}
   end
